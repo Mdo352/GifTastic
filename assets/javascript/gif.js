@@ -16,6 +16,7 @@ function displayGif() {
 
         for (var i = 0; i < response.data.length; i++){
             var gifDiv = $("<div>");
+            gifDiv.addClass("gif")
             var rating = $("<p>").text("Rating: " + results[i].rating); 
 
             var showGif = $("<img>");
