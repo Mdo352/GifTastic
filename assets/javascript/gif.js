@@ -56,7 +56,7 @@ function buttons(){
     for (var i = 0; i < cartoons.length; i++) {
 
         var btnDiv = $("<button>");
-        btnDiv.addClass("showBtn");
+        btnDiv.addClass("labelBtn");
         btnDiv.attr("data-name", cartoons[i]);
         btnDiv.text(cartoons[i]);
         $("#btnTarget").append(btnDiv);
@@ -92,7 +92,7 @@ $("#toonBtn").on("click", function(event) {
   });
 
 
-$(document).on("click", ".showBtn", displayGif);
+$(document).on("click", ".labelBtn", displayGif);
 
 buttons();
 })

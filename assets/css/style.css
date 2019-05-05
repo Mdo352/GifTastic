@@ -3,6 +3,10 @@ body{
     padding: 0;
 }
 
+p{
+    text-align: center;
+}
+
 h1{
     text-align: center;
 }
@@ -16,6 +20,10 @@ h1{
     width: 90%;
 }
 
+.labelBtn{
+    margin-right: 3px;
+}
+
 form{
     margin-bottom: 10px;
 }
@@ -23,9 +31,21 @@ form{
 .gif{
     float: left;
     margin: 2px;
-    border: 3px solid black;
+    border: 3px solid #52c4ab;
 }
 
 .gif:hover{
     cursor: pointer;
+}
+
+button{
+    background-color:#52c4ab;
+    color: white;
+    border-color:#52c4ab;
+}
+
+#toonBtn{
+    background-color:#44b2ce;
+    color: white;
+    border-color: #44b2ce;
 }
