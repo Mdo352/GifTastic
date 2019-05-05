@@ -1,4 +1,5 @@
 body{
+    background-image: url("../images/food.png");
     margin: 0;
     padding: 0;
 }
@@ -29,6 +30,8 @@ form{
 }
 
 .gif{
+    background-color: gray;
+    color:white;
     float: left;
     margin: 2px;
     border: 3px solid #52c4ab;
