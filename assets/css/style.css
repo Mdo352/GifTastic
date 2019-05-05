@@ -3,12 +3,17 @@ body{
     padding: 0;
 }
 
+h1{
+    text-align: center;
+}
+
 #btnTarget{
     margin-bottom: 20px;
 }
 
 #gifTarget{
-    width: 60%;
+    margin:0 auto;
+    width: 90%;
 }
 
 form{
@@ -19,4 +24,8 @@ form{
     float: left;
     margin: 2px;
     border: 3px solid black;
+}
+
+.gif:hover{
+    cursor: pointer;
 }

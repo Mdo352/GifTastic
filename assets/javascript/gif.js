@@ -1,4 +1,6 @@
+$( document ).ready(function() {
 var cartoons = ['Spongebob', 'Futurama', 'South Park'];
+var isGifClicked = "still";
 
 function displayGif() {
 
@@ -13,27 +15,38 @@ function displayGif() {
     }).then(function(response) {
         var results = response.data;
         console.log(response);
-
+        
         for (var i = 0; i < response.data.length; i++){
             var gifDiv = $("<div>");
             gifDiv.addClass("gif")
             var rating = $("<p>").text("Rating: " + results[i].rating); 
-
+            
             var showGif = $("<img>");
-            showGif.attr("src", results[i].images.fixed_height.url);
-            // var imageUrl = results[i].image_original_url;
-            // showGif.attr("src", imageUrl);
-            showGif.attr("alt", "Gif Image of a cartoon");
 
+            showGif.attr("src", results[i].images.fixed_height_still.url);
+            showGif.attr("data-still", results[i].images.fixed_height_still.url);
+            showGif.attr("data-motion", results[i].images.fixed_height.url);
+            showGif.attr("data-state", "still");
+            showGif.addClass("gifImg");
+            
+            showGif.attr("alt", "Gif Image of a cartoon");
+            
             gifDiv.prepend(rating);
             gifDiv.prepend(showGif);
-
-
+            
+            
             $("#gifTarget").prepend(gifDiv);
         }
-
+        
     });
+    
+}
 
+function changeSrc(){
+    isGifClicked = true;
+    console.log('clicked');
+    console.log(isGifClicked);
+    stillGif.attr("src", results[i].images.fixed_height.url);
 }
 
 function buttons(){
@@ -48,8 +61,28 @@ function buttons(){
         btnDiv.text(cartoons[i]);
         $("#btnTarget").append(btnDiv);
     }
-
+    
 }
+$(document).on("click",".gifImg", function(){
+    // alert("clicked")
+    // debugger;
+    var state = $(this).attr("data-state");
+    console.log($(this).attr("data-state"));
+    // if(!state){
+    //     return;
+    // }
+    if (state === "still"){
+        $(this).attr("src", $(this).attr("data-motion"));
+        $(this).attr("data-state", "motion");
+    }else{
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", isGifClicked);
+    }
+});
+
+$("#clear").on('click', function(){
+    $("#gifTarget").empty();
+})
 
 $("#toonBtn").on("click", function(event) {
     event.preventDefault();
@@ -58,6 +91,8 @@ $("#toonBtn").on("click", function(event) {
     buttons();
   });
 
+
 $(document).on("click", ".showBtn", displayGif);
 
 buttons();
+})
